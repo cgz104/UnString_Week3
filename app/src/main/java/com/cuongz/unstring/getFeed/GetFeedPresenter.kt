@@ -15,7 +15,7 @@ class GetFeedPresenter(var view: GetFeedInterface.View): GetFeedInterface.Presen
             override fun onFailure(call: Call<Feed>, t: Throwable) {
                 Log.w("test feed fail", "true")
             }
-
+vxcvxcvxcv
             override fun onResponse(call: Call<Feed>, response: Response<Feed>) {
                 Log.w("test feed fail", "false")
                 val resBody = response.body()
