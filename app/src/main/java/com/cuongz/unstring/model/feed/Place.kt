@@ -25,6 +25,6 @@ class Place {
     var address: String? = null
     @SerializedName("photo")
     @Expose
-    var photo: Photo_? = null
+    var photo: Photo? = null
 
 }

@@ -4,7 +4,7 @@ import com.cuongz.unstring.model.feed.Feed
 
 interface GetFeedInterface {
     interface Presenter{
-        fun getFeedFromServer(accessToken: String)
+        fun getFeedFromServer(accessToken: String, page: String)
     }
 
     interface View{

@@ -18,4 +18,10 @@ interface ApiMethod {
         @Query("page") page: String?,
         @Query("current_per_page") current_per_page: String?
     ): Call<Feed>
+
+//    @GET("json")
+//    fun getGoogleDetails(
+//        @Query ("placeid") placeid: String?,
+//        @Query ("fields") fields: String?
+//    ): Call<GooglePlaceDetail>
 }

@@ -3,7 +3,7 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="400dp"
+    android:layout_height="wrap_content"
     android:layout_marginBottom="12dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -13,7 +13,7 @@
         android:background="#FFFFFF">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/poi_constraint1"
+            android:id="@+id/post1_constraint1"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:minHeight="60dp"
@@ -27,40 +27,38 @@
                 app:layout_constraintWidth_percent="0.7">
 
                 <ImageView
-                    android:id="@+id/poi_i1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_pnifilleddark"
+                    android:id="@+id/post1_imgProfile"
+                    android:layout_width="55dp"
+                    android:layout_height="55dp"
+                    android:src="@drawable/circle_gradien_img"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/poi_t1"
-                    android:layout_width="0dp"
+                    android:id="@+id/post1_userName"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
                     android:ellipsize="marquee"
                     android:fontFamily="@font/noir_pro_semi_bold"
                     android:marqueeRepeatLimit="marquee_forever"
                     android:singleLine="true"
+                    android:text="somedfs"
                     android:textColor="#000000"
                     android:textSize="20sp"
-                    app:layout_constraintHorizontal_bias="0"
-                    app:layout_constraintLeft_toRightOf="@id/poi_i1"
-                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintLeft_toRightOf="@id/post1_imgProfile"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:id="@+id/poi_t2"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:ellipsize="marquee"
-                    android:fontFamily="@font/noir_pro_medium"
-                    android:marqueeRepeatLimit="marquee_forever"
-                    android:singleLine="true"
-                    android:textSize="18sp"
-                    app:layout_constraintLeft_toRightOf="@id/poi_i1"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/poi_t1" />
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:id="@+id/post1_influencer"
+                    app:layout_constraintLeft_toRightOf="@id/post1_userName"
+                    app:layout_constraintTop_toTopOf="@id/post1_userName"
+                    app:layout_constraintBottom_toBottomOf="@id/post1_userName"
+                    android:layout_marginStart="8dp"
+                    android:src="@drawable/ic_sml"
+                    android:visibility="invisible"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -71,10 +69,10 @@
                 app:layout_constraintWidth_percent="0.3">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/poi_buttonString"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/post1_buttonSave"
+                    android:layout_width="88dp"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/button_string"
+                    android:background="@drawable/button_string2"
                     android:elevation="7dp"
                     android:padding="6dp"
                     app:layout_constraintLeft_toLeftOf="parent"
@@ -82,22 +80,25 @@
                     app:layout_constraintTop_toTopOf="parent">
 
                     <ImageView
-                        android:id="@+id/poi_imgInButton"
+                        android:id="@+id/post1_imgInButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_stringline_purple"
+                        android:src="@drawable/ic_savefilledlight"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
+                        android:id="@+id/post1_numberSave"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/noir_pro_semi_bold"
-                        android:text="String"
-                        android:textColor="#933dec"
+                        android:text="44"
+                        android:textColor="#FFFFFF"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintLeft_toRightOf="@id/poi_imgInButton"
+                        app:layout_constraintHorizontal_bias="0.2"
+                        app:layout_constraintLeft_toRightOf="@id/post1_imgInButton"
+                        app:layout_constraintRight_toRightOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -107,38 +108,111 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/poi_constraint2"
+            android:id="@+id/post1_statusField"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="45dp"
+            app:layout_constraintTop_toBottomOf="@id/post1_constraint1">
+
+            <TextView
+                android:id="@+id/post1_statusText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/noir_pro_regular"
+                android:gravity="center_vertical"
+                android:maxLines="2"
+                android:text="just some demo text dont mind this, i try to make it as long as possible bla bla bla bla bla"
+                android:textColor="#000000" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/post1_tagField"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/post1_statusField">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/post1_tag1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.2" />
+
+                <TextView
+                    android:id="@+id/post1_tag2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.2" />
+
+                <TextView
+                    android:id="@+id/post1_tag3"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.2" />
+
+                <TextView
+                    android:id="@+id/post1_tag4"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.2" />
+
+                <TextView
+                    android:id="@+id/post1_tag5"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.2" />
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/post1_constraint2"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
             android:layout_marginTop="10dp"
-            app:layout_constraintHeight_percent="0.65"
-            app:layout_constraintTop_toBottomOf="@id/poi_constraint1">
+            app:layout_constraintTop_toBottomOf="@id/post1_tagField">
 
             <ImageView
-                android:id="@+id/imageView"
+                android:id="@+id/post1_imageView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:src="@drawable/poi_gradien_img"
                 android:scaleType="fitXY" />
 
             <ImageView
-                android:id="@+id/poi_imgLocation"
+                android:id="@+id/post1_imgLocation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
                 android:src="@drawable/ic_pnifilledlight"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/post1_addressText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:maxWidth="250dp"
+                android:fontFamily="@font/noir_pro_regular"
+                android:text="some random test to test so it must be long long long a little bit bla blab lab"
+                android:textColor="#99FFFFFF"
+                android:textSize="16sp"
+                app:layout_constraintLeft_toRightOf="@id/post1_imgLocation"
+                app:layout_constraintTop_toTopOf="@id/post1_imgLocation" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/poi_constraint3"
+            android:id="@+id/post1_constraint3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            app:layout_constraintTop_toBottomOf="@id/poi_constraint2">
+            app:layout_constraintTop_toBottomOf="@id/post1_constraint2">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="0dp"
@@ -149,7 +223,7 @@
                 app:layout_constraintWidth_percent="0.4">
 
                 <ImageView
-                    android:id="@+id/poi_imgHeart"
+                    android:id="@+id/post1_imgHeart"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_icosocialheartline"
@@ -158,34 +232,34 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/poi_numHeart"
+                    android:id="@+id/post1_numHeart"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/noir_pro_medium"
                     android:textColor="#000000"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toRightOf="@id/poi_imgHeart"
+                    app:layout_constraintLeft_toRightOf="@id/post1_imgHeart"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
-                    android:id="@+id/poi_imgComment"
+                    android:id="@+id/post1_imgComment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_commentlinedark"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintHorizontal_bias="0.3"
-                    app:layout_constraintLeft_toRightOf="@id/poi_numHeart"
+                    app:layout_constraintLeft_toRightOf="@id/post1_numHeart"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/poi_numComment"
+                    android:id="@+id/post1_numComment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/noir_pro_medium"
                     android:textColor="#000000"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toRightOf="@id/poi_imgComment"
+                    app:layout_constraintLeft_toRightOf="@id/post1_imgComment"
                     app:layout_constraintTop_toTopOf="parent" />
 
 

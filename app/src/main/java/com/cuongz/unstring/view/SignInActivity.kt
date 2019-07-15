@@ -26,14 +26,18 @@ class SignInActivity : AppCompatActivity() {
 
         button_login.setOnClickListener {
 //            presenter.userLogIn(fcm_token, username.text.toString(), password.text.toString())
-            presenter.userLogIn(fcm_token, "cuong.le1004@gmail.com", "123123")
+            presenter.userLogIn(fcm_token, email.text.toString(), password.text.toString())
 
 
             Handler().postDelayed({
-                val intentSendToken = Intent(this@SignInActivity, FeedActivity::class.java)
-                intentSendToken.putExtra("accessToken", presenter.getAccessToken())
-                startActivity(intentSendToken)
-            }, 1000)
+                if(presenter.getResult() == false){
+                    Toast.makeText(this,"Check email and password again", Toast.LENGTH_SHORT).show()
+                }else{
+                    val intentSendToken = Intent(this@SignInActivity, FeedActivity::class.java)
+                    intentSendToken.putExtra("accessToken", presenter.getAccessToken())
+                    startActivity(intentSendToken)
+                }
+            }, 2000)
 
         }
     }

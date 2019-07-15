@@ -14,10 +14,8 @@ import com.google.firebase.iid.FirebaseInstanceId
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
-//    private var presenter = GetUserPresenter()
-//    private var feedPresenter: GetFeedInterface.Presenter = GetFeedPresenter()
     private var firebasetoken: String? = null
-//    private var datare: Datum? = null
+//    private var ggDetail = GetDetails()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,12 +24,17 @@ class MainActivity : AppCompatActivity() {
         val slideup: Animation = AnimationUtils.loadAnimation(stringLogo.context,
             R.anim.logo_animation
         )
+
+//        ggDetail.getDetailsFromGoogle()
+
+
         stringLogo.startAnimation(slideup)
+
 
         FirebaseInstanceId.getInstance().instanceId
             .addOnCompleteListener(OnCompleteListener { task ->
                 if (!task.isSuccessful) {
-                    Log.w(TAG, "getInstanceId failed", task.exception)
+//                    Log.w(TAG, "getInstanceId failed", task.exception)
                     return@OnCompleteListener
                 }
 
@@ -39,39 +42,29 @@ class MainActivity : AppCompatActivity() {
                 firebasetoken = task.result?.token
 
                 // Log and toast
-                val msg = getString(R.string.msg_token_fmt, firebasetoken)
-                Log.d("show token", firebasetoken)
-                Toast.makeText(baseContext, msg, Toast.LENGTH_SHORT).show()
+//                val msg = getString(R.string.msg_token_fmt, firebasetoken)
+//                Log.d("show token", firebasetoken)
+//                Toast.makeText(baseContext, msg, Toast.LENGTH_SHORT).show()
             })
 
         Handler().postDelayed({
-            val intent = Intent(this, SignInActivity::class.java)
-            intent.putExtra("fcm_token", firebasetoken)
-            startActivity(intent)
-            finish()
-        }, 1000)
+            if(firebasetoken == null){
+                Toast.makeText(this, "Check Internet and open app again", Toast.LENGTH_SHORT).show()
+            }else{
+                val intent = Intent(this, SignInActivity::class.java)
+                intent.putExtra("fcm_token", firebasetoken)
+                startActivity(intent)
+                finish()
+            }
 
-//        Handler().postDelayed({
-//            if(firebasetoken != null){
-//                Log.w("is null?", "false")
-//                presenter.userLogIn(firebasetoken)
+        }, 2000)
+
+
+
+    }
+
+//    companion object {
 //
-//            }else{
-//                Log.w("is null", "true")
-//            }
-//        }, 2000)
-
-
-
-//        Handler().postDelayed({ feedPresenter.getFeedFromServer() }, 2000)
-
-
-
-
-    }
-
-    companion object {
-
-        private const val TAG = "MainActivity"
-    }
+//        private const val TAG = "MainActivity"
+//    }
 }
